@@ -1,0 +1,16 @@
+version: "3"
+
+services: 
+  valheim-2: 
+    image: ghcr.io/lloesche/valheim-server
+    cap_add:
+      - sys_nice
+    volumes: 
+      - $HOME/valheim-server-2/config:/config
+      - $HOME/valheim-server-2/data:/opt/valheim
+    ports: 
+      - "4456-4458:4456-4458/udp"
+    env_file:
+      - $HOME/valheim-server-2/valheim.env
+    restart: always
+    stop_grace_period: 2m
