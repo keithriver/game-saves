@@ -1,0 +1,64 @@
+#
+#  Project Zomboid Dedicated Server using SteamCMD Docker Image.
+#  Copyright (C) 2021-2022 Renegade-Master [renegade.master.dev@protonmail.com]
+#
+#  This program is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or
+#  (at your option) any later version.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with this program.  If not, see <https://www.gnu.org/licenses/>.
+#
+
+version: "3.8"
+
+services:
+  zomboid-dedicated-server:
+    build:
+      context: .
+      dockerfile: docker/zomboid-dedicated-server.Dockerfile
+    image: "docker.io/renegademaster/zomboid-dedicated-server:latest"
+    container_name: zomboid-dedicated-server
+    restart: "no"
+    environment:
+      - "ADMIN_PASSWORD=bon-bon-bon-qsczse"
+      - "ADMIN_USERNAME=keithriver"
+      - "AUTOSAVE_INTERVAL=30"
+      - "BIND_IP=0.0.0.0"
+      - "DEFAULT_PORT=16261"
+      - "GAME_VERSION=public"
+      - "GC_CONFIG=ZGC"
+      - "MAP_NAMES=Suvival's Store;NewDenver;Rosebery;Silverton;Seaside;researchbaseroad;researchbase;RavenCreek;vehicle_interior;OverfieldBunker;McCoysBunker;Heavens Hill;Fort Waterfront;Fort Rock Ridge;FortRedstone;Elysium_Island;Chestown;BedfordFalls;North;South;West;Basements;Ashenwood;Muldraugh, KY"
+      - "MAX_PLAYERS=16"
+      - "MAX_RAM=8096m"
+      - "MOD_NAMES=49powerWagon;59meteor;67commando;69camaro;70dodge;74amgeneralM151A2;78amgeneralM35A2;78amgeneralM49A2C;78amgeneralM50A3;78amgeneralM62;82oshkoshM911;83amgeneralM923;84merc;85merc;86oshkoshP19A;87cruiser;88golfMk2;88jettaMk2;89def110;89def90;90niva;90pierceArrow;91range;92amgeneralM998;92fordCVPI;92nissanGTR;93fordElgin;99fordCVPI;CrashedCarsMod;ADRENALINE_MOD;agrotsar;Arsenal(26)GunFighter[MAIN MOD 2.0];Arsenal(26)GunFighter;Ashenwood;Authentic Z - Current;ATA_Datsun_240z;amclub;autotsartrailers;ATA_BMW_E36;ATA_Bus;ATA_DeLorean;ATA_Dadge;ATA_Mustang_66;ATA_Mustang;ATA_Jeep;VISIBLE_BACKPACK_BACKGROUND;BarricadedWorld;Basements;BasicCrafting;BecomeDesensitized;BedfordFalls;BetterSortCC;betterLockpicking;Brita_2;Brita_K153;Brita;BCGTools;CanteensAndBottles;Chestown;cleanashes;ClothesBoxRedux;coavinsfirearms;coavinssupport1;coavinssupport2;coavinssupport3;coavinssupport4;BB_CommonSense;isoContainers;CraftHelper41;CustomizableZombies;Diederiks Tile Palooza;DRAW_ON_MAP;Driver_Cars;DylansTiles;EasyConfigChucked;Elysium_Island;PictureThis;EntertainYourself;SentryTurret01;EssentialCrafting;ExpandedHelicopterEvents;ExtraMapSymbols;ExtraMapSymbolsUI;EN_Newburbs;FastForward;FencingKits;FRUsedCars;FRUsedCarsNRN;firearmmod;firearmmodbspatch;FixCapacityOverlap;FH;FoodPreservationPlus;fhqGT40MkI;FORTREDSTONE;Fort Rock Ridge;Fort Waterfront;fuelsideindicator;FuelAPI;GrowTobacco;AFTAA;HTowTruckFix;P4HasBeenRead;Heavens Hill;HerbalMedicinePlus;HereTheyCome;Hydrocraft;HypothermiaKills;ISA_41;improvedbuildmenu41;improvedbuildmenu41-2;improvedhairmenu;ImprovisedGlass;RiskyInspectWeapon;ItemTweakerAPI;jumpThroughWindows;OutTheWindow;KillCount;LamboDiablofhq;Lingering Voices;MakePaths;manageContainers;MapLegendUI;MapSymbolSizeSlider;MazdaMiatafhq;MiataNoWinkSpawn;rx7fc;McCoysBunker;melos_tiles_for_miles_pack;MetalSpear;MiniHealthPanel;MinimalDisplayBars;ModManager;ModManagerELO;ModManagerServer;modoptions;MoreBuilds;MoreDescriptionForTraits4166;MoreSimpleTraits;ToadTraits;ToadTraitsDynamic;NepBatteryColor;NepEngineColor;NepNearbyTraps;Anim_HandTorch;Nissan240sxNotchback;300ZXZ32fhqNoPolice;300ZXZ32fhq;NissanSkylineR32fhq;OverfieldBunker;myclothinguimod;PaintYourRide;PertsPartyTiles;ProfessionFrameworkB41Patch;RV_Interior_MP;RV_Interior_Vanilla;RainCleansBlood;RainWash;RavenCreek;RealMetalworking;ReLght;spiffovanrefrigerator;rbr;rbrA2;RotatorsLib;RuggedRecipes;sapphcooking;sapphcookingbettersorting;SearchContainers;Seaside;ServingPlates;simonMDsTiles;SimpleRetexturesMakeup;SimpleRetexturesFemaleNude;SimpleRetexturesMaleNude;SimpleConvertToBritaSRC;SimpleFuelStorage;SkillRecoveryJournal;PwSleepingbags;SlocanLake;Smoker;snowiswaterbeta;SpearTraps;SprinterAE86;TKS;TheEngineer;The Frigate;HEMTTSeries;teacupfix;TheyKnew;P4TidyUpMeister;TIHFP;SupraMkIVfhq;Trash and Corpses;TreesHaveLoot;TMC_TrueActions;TrueActionsDancing;tsarslib;TwinkiesVan;Black_Hawk;UndeadSuvivor;UniversalRepairAnything;VFExpansion1;VehicleRepairOverhaul;VileM113APC;VileM113APCSPWNJNK;VileM113APCSPWNMIL;VileM113APCSPWNPOL;Visible Generators and Corpses;T3;rSemiTruck;Suvival's Store;WaterDispenser;rWaterTrailerSemi;rWaterTrailer;Barricades41;TheStar;wellsConstruction;Worse Vehicle Condition;wringclothes;YakiBS;AnaLGiNs_RenewableFoodResources;ZM1A1;bikinitools;tkTiles_01;BION_PlainMoodles;ProximityInventory;DropRollMod;REORDER_CONTAINERS;TchernoLib;Jump;63beetle;REORDER_THE_HOTBAR;ReloadAllMagazines;ducksBZSF;"
+      - "MOD_WORKSHOP_IDS=2900580391;2772575623;2478247379;2991201484;2873290424;2785549133;2799152995;2618213077;2811383142;2805630347;2469388752;2566953935;2489148104;2516123638;2522173579;2441990998;2443275640;2422681177;2942793445;2409333430;2642541073;2962175696;2846036306;2969343830;2971246021;1539281445;2807001835;2728257015;2297098490;2820363371;2335368829;2984487137;2778576730;2282429356;2946111058;2592358528;2963237571;2743496289;2984482062;2681635926;2636100523;2808679062;2696986935;2849247394;2621259304;2627877543;522891356;2313387159;2368058459;2460154811;2794684100;2200148440;2423906082;2863949128;2840889213;2816646537;2847911733;2847408431;2875848298;2625625421;2186592938;1992785456;2337452747;2804531012;2931008117;2599752664;2529746725;2819655145;2975848784;2950608437;2753312788;2903127760;2458631365;2701170568;2774834715;2968318536;2812828771;1510950729;2256623447;2957932451;2447729538;2890748284;2698830069;1516836158;2806456685;2779248414;2616986064;2688538916;2941738168;2781774668;2778456849;2544353492;2834407334;2891494114;2779839289;2081538550;2955282161;2857548524;1969456967;2732662310;2800412098;2948824747;566115016;2688884240;2659216714;2553809727;2767472803;2874678809;2759027882;2650547917;2710167561;2734705913;2749103052;2756615186;2794721857;2879745353;2613871263;2866258937;2004998206;2694448564;2945221351;2725216703;2169435993;515555911;2685168362;2792245343;1299328280;2973053380;2975204120;2974760428;2960474000;2698655004;2777051019;2728497787;2789365414;2695471997;2281256511;2837923608;2216760107;2822286426;2956146279;2657661246;2196102849;2900671939;2780594299;2621971863;2807152393;2732594572;2715579154;2832136889;2946364542;2783179512;2963511042;2852704777;2803364788;2696120270;2907607479;2503622437;2714848168;532252577;2026976958;2704811006;2640351732;2781895054;2839025395;2906633595;2991291149;2787752761;2714477061;2725378876;2769706949;2897536185;2742154419;2475407908;2951270166;2487022075;2648779556;2392709985;2838950860;2799925193;2713921292;2779627490;2667899942;2757712197;1983277711;2809719515;2748047915;2759339330;2672968796;2687798127;2732639855;2790397567;2619072426;2852690210;2475212568;2696083206;2810471370;2688622178;2830466876;2634426926;2384329562;3008416736;2847184718;2908614026;2901962885;2986578314;2998815983;3005903549;2903771337;2920899878;2961467351;"
+      - "PAUSE_ON_EMPTY=true"
+      - "PUBLIC_SERVER=true"
+      - "RCON_PASSWORD=onyourright"
+      - "RCON_PORT=27015"
+      - "SERVER_NAME=Bifrost"
+      - "SERVER_PASSWORD=onyourleft"
+      - "STEAM_VAC=true"
+      - "UDP_PORT=16262"
+      - "USE_STEAM=true"
+      - "TZ=UTC"
+    ports:
+      - target: 16261
+        published: 16261
+        protocol: udp
+      - target: 16262
+        published: 16262
+        protocol: udp
+      - target: 27015
+        published: 27015
+        protocol: tcp
+    volumes:
+      - ./ZomboidDedicatedServer:/home/steam/ZomboidDedicatedServer
+      - ./ZomboidConfig:/home/steam/Zomboid/
